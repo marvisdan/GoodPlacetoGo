@@ -1,6 +1,6 @@
 Test Glose
 
-This project use creat-react-app and some librairies like
+This project use create-react-app and some librairies like
 - react
 - redux
 - redux-saga
