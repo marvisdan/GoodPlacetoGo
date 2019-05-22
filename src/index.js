@@ -1,33 +1,47 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
+import thunk from 'redux-thunk';
+import { createBrowserHistory } from 'history';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import createSagaMiddleware from 'redux-saga';
+import { connectRouter, routerMiddleware, ConnectedRouter } from 'connected-react-router';
+import { Route, Switch } from 'react-router' // react-router v4
 
-import './index.css';
-import App from './App';
-import rootReducer from './reducers/index';
-import watchFetchBooks from './sagas/books.saga';
+
+// import App from './App';
+import rootReducer from './actions/reducers/index';
+import 'semantic-ui-css/semantic.min.css';
+import Layout from './Layout';
+import SinglePlace from './pages/single-place';
+import Dashboard from './pages/dashboard';
+
+const history = createBrowserHistory();
 
 /* global window document */
 /* eslint-disable no-underscore-dangle */
-const sagaMiddleware = createSagaMiddleware();
-
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(sagaMiddleware)),
+	connectRouter(history)(rootReducer),
+	composeEnhancers(
+		applyMiddleware(
+			routerMiddleware(history), // for dispatching history actions
+			thunk,
+		),
+	),
 );
-sagaMiddleware.run(watchFetchBooks);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router>
-      <Switch>
-        <Route exact path="/" component={App} />
-      </Switch>
-    </Router>
-  </Provider>,
-  document.getElementById('root'),
+	<Provider store={store}>
+		<Layout>
+			<ConnectedRouter history={history}>
+				<Switch>
+					<Route path="/places/:id" component={SinglePlace} />
+					<Route path="/places" component={Dashboard} />
+					<Route exact path="/" component={Dashboard} />
+				</Switch>
+			</ConnectedRouter>
+		</Layout>
+	</Provider>,
+	document.getElementById('root'),
 );

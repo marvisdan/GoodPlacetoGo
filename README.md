@@ -3,7 +3,8 @@ Test Glose
 This project use create-react-app and some librairies like
 - react
 - redux
-- redux-saga
+- redux-thunk
 - axios
 - eslint
 - styled-components
+# GoodPlacetoGo

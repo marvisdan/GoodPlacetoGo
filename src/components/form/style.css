@@ -1,0 +1,33 @@
+
+
+.input-field {
+  display:  flex;
+  flex-direction: column;
+}
+
+.form {
+  min-width: 200px;
+  margin: 0 20px;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+}
+
+.drop-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drop-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+}
