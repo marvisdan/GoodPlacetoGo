@@ -190,7 +190,7 @@ class PlaceForm extends Component {
           </div>
           <Form.Group>
             <Form.Field required>
-              <Form.Input type='text' label="Name" placeholder='Name' maxlength='200' value={name} onChange={this.onChangeName} error={nameError} />
+              <Form.Input type='text' label="Name" placeholder='Name' maxLength='20' value={name} onChange={this.onChangeName} error={nameError} />
             </Form.Field>
           </Form.Group>
           <Form.Group>
@@ -206,7 +206,7 @@ class PlaceForm extends Component {
           </Form.Group>
           <Form.Field>
             <label>Description</label>
-            <textarea rows='5' placeholder='Content' maxlength='500' value={description} onChange={this.onChangeDescription} ></textarea>
+            <textarea rows='5' placeholder='Content' maxLength='500' value={description} onChange={this.onChangeDescription} ></textarea>
           </Form.Field>
           <div className='button-wrapper' >
             <Button onClick={() => this.onClose()}>Cancel</Button>

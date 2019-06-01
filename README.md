@@ -1,4 +1,4 @@
-Test Glose
+# GoodPlacetoGo
 
 This project use create-react-app and some librairies like
 - react
@@ -7,4 +7,3 @@ This project use create-react-app and some librairies like
 - axios
 - eslint
 - styled-components
-# GoodPlacetoGo

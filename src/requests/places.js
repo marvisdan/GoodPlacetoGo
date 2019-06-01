@@ -1,5 +1,4 @@
 import axios from 'axios';
-import data from '../mock/data/data';
 const url = 'http://localhost:4001/places';
 
 const Places = () => {

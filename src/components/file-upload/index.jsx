@@ -19,30 +19,6 @@ class FileUpload extends Component {
       fileName: files[0].name,
       uploadStatus: true,
     });
-
-
-    //   const data = new FormData();
-    //   data.append('file', files[0])
-    //   data.append('filename', files[0].name);
-
-    //   fetch('/upload', {
-    //     method: 'POST',
-    //     body: data,
-    //   }).then((response) => {
-    //     console.log('RESPONSE', response.json());
-
-    //     response.json().then((body) => {
-    //       console.log('body', body);
-
-    //       this.setState({
-    //         files,
-    //         fileName: files[0].name,
-    //         uploadStatus: true,
-    //       });
-    //     }).catch(error => {
-    //       console.log('error upload file image', error);
-    //     });
-    //   });
   }
 
   render() {
